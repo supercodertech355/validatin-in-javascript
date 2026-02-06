@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>check validity</title>
+    </head>
+    <body>
+        <input id="id" type="number" min="100" max="300" required>
+        <button onclick="check()">Check Validity</button>
+        <P id="result"></P>
+        <script>
+            function check(){
+                var obj = document.getElementById("id");
+                if(!obj.checkValidity()){
+                    document.getElementById("result").innerHTML = obj.validationMessage;
+                }
+                else{
+                    document.getElementById("result").innerHTML = "inputok";
+                }
+
+            }
+        </script>
+    </body>
+</html>

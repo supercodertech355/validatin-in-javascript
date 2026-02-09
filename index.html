@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Function Demo</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 50px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Async JavaScript Demo</h1>
+    <p>Click the button below to trigger an asynchronous function (simulates a data fetch).</p>
+
+    <button id="loadBtn" onclick="handleLoad()">Fetch Data</button>
+
+    <div id="output">Ready to load...</div>
+
+    <script>
+        // Asynchronous function using internal JavaScript
+        async function handleLoad() {
+            const btn = document.getElementById('loadBtn');
+            const output = document.getElementById('output');
+
+            // 1. Update UI immediately
+            btn.disabled = true;
+            btn.textContent = "Loading...";
+            output.innerHTML = "<em>Simulating network request (waiting 2 seconds)...</em>";
+
+            try {
+                // 2. Perform the asynchronous operation
+                // 'await' pauses execution here until the Promise resolves
+                const data = await simulateNetworkRequest();
+
+                // 3. Handle the result
+                output.innerHTML = `
+                    <strong>Success!</strong><br>
+                    Received message: "${data.message}"<br>
+                    Timestamp: ${data.timestamp}
+                `;
+            } catch (error) {
+                output.innerHTML = `<span style="color: red">Error: ${error}</span>`;
+            } finally {
+                // 4. Reset UI state
+                btn.disabled = false;
+                btn.textContent = "Fetch Data";
+            }
+        }
+
+        // Helper function that returns a Promise
+        function simulateNetworkRequest() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        message: "Hello from the async world!",
+                        timestamp: new Date().toLocaleTimeString()
+                    });
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>

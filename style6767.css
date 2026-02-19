@@ -1,0 +1,20 @@
+:root {
+    /* HSL Format: Hue Saturation% Lightness% */
+    --background: hsl(260 50% 10%);
+    --foreground: hsl(210 40% 98%);
+    --primary: hsl(280 80% 60%);
+    --secondary: hsl(190 90% 50%);
+    --accent: hsl(320 80% 60%);
+    --card: hsl(260 45% 15%);
+    --border: hsl(260 30% 25%);
+}
+
+@layer utilities {
+    .glass-card {
+        @apply bg-card/40 backdrop-blur-xl border border-white/10 shadow-xl;
+    }
+
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
+    }
+}

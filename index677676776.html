@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="style6767.css" />
+    <title>Async Greetings</title>
+</head>
+
+<body
+    style="background-color: hsl(260, 50%, 10%); color: hsl(210, 40%, 98%); margin: 0; padding: 20px; font-family: Arial, sans-serif;">
+    <div
+        style="background: hsl(260, 45%, 15%); border: 1px solid hsl(260, 30%, 25%); padding: 30px; border-radius: 10px;">
+        <h1
+            style="background: linear-gradient(to right, hsl(280, 80%, 60%), hsl(320, 80%, 60%)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            Async Greetings</h1>
+        <p>Click the button to fetch greeting asynchronously:</p>
+
+        <button id="fetchBtn"
+            style="background: hsl(280, 80%, 60%); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+            Load Greeting
+        </button>
+
+        <div id="result"
+            style="margin-top: 20px; padding: 15px; background: hsl(260, 50%, 20%); border-radius: 5px; display: none;">
+            <p id="greeting"></p>
+        </div>
+
+        <p id="loading" style="color: hsl(190, 90%, 50%); display: none;">Loading...</p>
+    </div>
+
+    <script src="script6767.js"></script>
+</body>
+
+</html>
